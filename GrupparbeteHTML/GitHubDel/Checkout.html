@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+
+<body class="bg">
+<main>
+    <header>
+        <div class="flexBoxImage logoPaddingRight">
+
+            <img class="loggan" src="img/logoMandatory.gif" alt="Logo mandatory">
+
+            <a href="contact.html" class="contactPaddingLeft buttonBox"><h2>Contact</h2></a>
+            <a href="blog.html" class="contactPaddingLeft buttonBox" ><h2>Blogg</h2></a></div>
+    </header>
+
+    <section>
+
+        <section>
+            <table cellspacing="10px" width="100%" border="10">
+                <tr class="buttonText">
+                    <td class="buttonBox tableWidth1">
+                        <center><a href="index.html"><p>Vår elektroniksida</p></a></center>
+                    </td>
+                    <td class="buttonBox tableWidth2">
+                        <form>
+                            <input class="textBox fitContain" placeholder="Sök:" pattern="[A-Za-z - _]*" required
+                                   minlength="3" type="text"><br>
+                        </form>
+                    </td>
+
+                    <th width="20%" class="buttonBox tableWidth3">
+                        <!--<a href="checkout.html">Checkout:</a>-->
+                        <a href="ShoppingCart.html">
+                            <img class="cartSize" src="img/kundvagn.jpg" alt="Checkout"></a>
+                    </th>
+                </tr>
+
+            </table>
+        </section>
+
+
+    </section>
+
+    <div class="rad">
+        <div class="kolumn">
+
+            <form class="formData">
+                <div class="kolumn">
+                    <h3>Personliga uppgifter</h3>
+
+                    <label>Förnamn</label>
+                    <input type="text" pattern="[A-z]" id="firstName" class="input">
+                    <label>Efternamn</label>
+                    <input type="text" pattern="[A-z]" id="lastName" class="input">
+                    <label>Adress</label>
+                    <input type="text" pattern="[A-z|0-9]" id="adress" class="input">
+                    <label>Postkod</label>
+                    <input type="text" pattern="[0-9]" id="zipCode" class="input">
+                    <label>Ort</label>
+                    <input type="text" pattern="[A-z]" id="city" class="input">
+                    <label>Land</label>
+                    <input type="text" pattern="[A-z]" id="country" class="input">
+                    <label>Email</label>
+                    <input type="email" id="email" class="input">
+                    <label>Telefon</label>
+                    <input type="text" id="phone" class="input" pattern="[0-9]" minlength="10"
+                           maxlength="11">
+                </div>
+                <div class="kolumn">
+
+
+                    <h3>Betalsätt</h3>
+
+                    <div class="radio">
+                        <input type="radio" name="betalning" id="payChoice1" value="Kort" >
+                        <label for="payChoice1">Kort</label>
+                    </div>
+                    <div class="radio">
+                        <input type="radio" name="betalning" id="payChoice2" value="Faktura">
+                        <label for="payChoice2">Faktura</label>
+                    </div>
+                    <div class="radio">
+                        <input type="radio" name="betalning" id="payChoice3" value="Postförskott">
+                        <label for="payChoice3">Postförskott</label>
+                    </div>
+                    <div class="radio">
+                        <input type="radio" name="betalning" id="payChoice4" value="Swish">
+                        <label for="payChoice4">Swish</label>
+                    </div>
+
+                    <h3>Fraktsätt</h3>
+
+                    <div class="radio">
+                        <input type="radio" name="frakt" id="shipChoice1" value="Standard(99kr)" data-price="99">
+                        <label for="shipChoice1">Standard (99kr)</label>
+                    </div>
+                    <div class="radio">
+                        <input type="radio" name="frakt" id="shipChoice2" value="Express(149kr)" data-price="149">
+                        <label for="shipChoice2">Express (149kr)</label>
+                    </div>
+                    <div class="radio">
+                        <input type="radio" name="frakt" id="shipChoice3" value="Hemleverans(199kr)" data-price="199">
+                        <label for="shipChoice3">Hemleverans (199kr)</label>
+                    </div>
+
+                    <pre><label>Rabattkod</label></pre>
+                    <input type="text" minlength="5" maxlength="5" class="input" pattern="[0-9]" title="Koden består av 5 siffror">
+                </div>
+            </form>
+            <button id="submit">Bekräfta</button>
+        </div>
+        <ul id="control">
+
+        </ul>
+    </div>
+
+</main>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="javascript.js"></script>
+</body>
+</html>

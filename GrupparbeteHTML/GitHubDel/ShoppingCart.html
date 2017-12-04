@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Här hittar du de senaste datorskärmarna">
+    <meta name="keywords" content="skärm, dator, billigt, shop">
+
+    <title>Shopping cart</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+</head>
+<body class="bg">
+<main>
+    <header>
+        <div class="flexBoxImage logoPaddingRight ">
+
+            <img class="loggan" src="img/logoMandatory.gif" alt="Logo mandatory">
+
+            <a href="contact.html" class="contactPaddingLeft  buttonBox"><h2>Contact</h2></a>
+            <a href="blog.html" class="contactPaddingLeft buttonBox" ><h2>Blogg</h2></a></div>
+    </header>
+    <section>
+        <table cellspacing="10px" width="100%" border="10">
+            <tr class="buttonText">
+                <th class="buttonBox">
+                    <a href="index.html"><p> Vår elektroniksida</p></a>
+                </th>
+                <th class="buttonBox tableWidth2">
+                    <form>
+                        <input class="textBox fitContain" placeholder="Sök:" pattern="[A-Za-z - _]*" required
+                               minlength="3" type="text"><br>
+
+                    </form>
+                </th>
+
+                <th width="20%" class="buttonBox tableWidth3">
+                    <a href="ShoppingCart.html">
+                        <img class="cartSize" src="img/kundvagn.jpg" alt="Checkout"></a>
+                </th>
+            </tr>
+
+        </table>
+    </section>
+
+    <table>
+        <tr>
+            <th>Produkt</th>
+            <th>Beskrivning</th>
+            <th>Pris</th>
+            <th>Antal</th>
+            <th></th>
+            <th>Totalt pris</th>
+        </tr>
+        <tr class="product">
+
+            <td><img src="img/nätaggregat.jpg" alt="Nätaggregat" class="pictureSize"></img></td>
+            <td>750 Watt 80 PLUS Bronze</td>
+            <td>1200 kr</td>
+            <td><input type="number"></td>
+            <td><button type="button" class="delete">Ta bort</button></td>
+            <td>Totalt:</td>
+        </tr>
+        <tr>
+            <td><img src="img/grafikkort.jpg" alt="keyboard" class="pictureSize"></img></td>
+            <td>PCIe 3.0 x16</td>
+            <td>1200 kr</td>
+            <td><input type="number"></td>
+            <td><button type="button">Ta bort</button></td>
+            <td>Totalt:</td>
+        </tr>
+    </table>
+    <div>Totalt:<p></p> </div>
+    <button type="button" class="checkout"><a href="checkout.html">Till kassan</a></button>
+
+</main>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="javascript.js"></script>
+</body>
+</html>
