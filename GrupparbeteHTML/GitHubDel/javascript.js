@@ -34,6 +34,7 @@ $(document).ready(function () {
 
     });
     $('.leaveComment').on('click', function () {
+
         if(localStorage.addComment){
             localStorage.addComment=localStorage.addComment+$(this).closest('.commentSection').find('.commentText').val();
         }
@@ -43,8 +44,13 @@ $(document).ready(function () {
         $(this).closest('.commentSection').find('.costumerComments').text(localStorage.addComment);
 
     });
-    $('.delete').on('click', function () {
+    $('#productTable').on('click','.delete', function () {
         $(this).closest('.product').addClass('hide');
+        $(this).closest('#productTable').find('#reset').show();
+        var newPrice=Number(localStorage.getItem('totalPrice'))-Number($(this).closest('.product').find('.totalProduct').text());
+        $('#totalPrice').text(newPrice);
+        localStorage.setItem('totalPrice',newPrice);
+
 
 
     });
@@ -60,15 +66,16 @@ $(document).ready(function () {
         formData.telefon=$("#phone").val();
         formData.betalsätt=$("input[name=betalning]:checked").val();
         formData.fraktsätt=$("input[name=frakt]:checked").val();
-        sessionStorage.setItem("name","Lidia");
-        console.log(sessionStorage.getItem("name"));
-        showData();
+        var toPay=Number(localStorage.getItem('totalPrice'))+Number($(this).closest('.kolumn').find('input[name=frakt]:checked').data('price'));
+
+        showData(toPay);
     });
-    function showData() {
+    function showData(toPay) {
         $("#control").empty();
         $(".kolumn").hide();
 
         $("#control").append("<li><h3>Tack för din bestälning!</h3></li>");
+        $("#control").append("<li><b>Att betala:<span >"+toPay+"</span>kr</b></li>");
         for (var key in formData) {
             if (formData.hasOwnProperty(key)) {
 
@@ -78,6 +85,27 @@ $(document).ready(function () {
             }
         }
     }
+
+
+    $('#productTable').on('keyup','.amount', function () {
+        var totalProductPrice=Number($(this).closest('.product').find('.price').data('price'))*$(this).val();
+
+        $(this).closest('.product').find('.totalProduct').text(totalProductPrice);
+        var totalPrice=Number($('#totalProduct1').text())+Number($('#totalProduct2').text());
+        $('#totalPrice').text(totalPrice);
+        localStorage.setItem('totalPrice',totalPrice);
+
+    });
+    $('#productTable').on('click','#resetButton', function () {
+        $(this).closest('#productTable').find('.product').removeClass('hide');
+        $(this).closest('#reset').hide();
+        var totalPrice=Number($('#totalProduct1').text())+Number($('#totalProduct2').text());
+        $('#totalPrice').text(totalPrice);
+        localStorage.setItem('totalPrice',totalPrice);
+
+    });
+
+
 });
 
 

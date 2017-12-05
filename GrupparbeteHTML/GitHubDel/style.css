@@ -106,6 +106,7 @@ a:hover {
 
 .center {
     text-align: center;
+    color: darkslategrey;
 }
 
 .buttonBox {
@@ -508,9 +509,13 @@ footer {
 
 button {
     font-size: 16px;
-    background-color: indianred;
+    background-color: gainsboro;
     font-weight: bold;
-    color: green;
+    color: darkslategrey ;
+}
+button:hover{
+    background-color: white;
+    color: blue;
 }
 
 /*/////////////////////////////// HENRIK*/
@@ -550,6 +555,17 @@ button {
 #control li{
     list-style: none;
     padding-bottom: 10px;
+}
+#resetButton{
+    margin-left: 70%;
+}
+.priceDiv{
+    text-align: center;
+    margin-left: 56%;
+}
+#checkout{
+    margin-left: 75%;
+    margin-top: 20px;
 }
 
 

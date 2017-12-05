@@ -44,7 +44,7 @@
         </table>
     </section>
 
-    <table>
+    <table id="productTable">
         <tr>
             <th>Produkt</th>
             <th>Beskrivning</th>
@@ -57,22 +57,25 @@
 
             <td><img src="img/nätaggregat.jpg" alt="Nätaggregat" class="pictureSize"></img></td>
             <td>750 Watt 80 PLUS Bronze</td>
-            <td>1200 kr</td>
-            <td><input type="number"></td>
+            <td class="price" data-price="1200">1200 kr</td>
+            <td><input type="number" class="amount"></td>
             <td><button type="button" class="delete">Ta bort</button></td>
-            <td>Totalt:</td>
+            <td>Totalt:<span class="totalProduct" id="totalProduct1"></span>kr</td>
         </tr>
-        <tr>
+        <tr class="product">
             <td><img src="img/grafikkort.jpg" alt="keyboard" class="pictureSize"></img></td>
             <td>PCIe 3.0 x16</td>
-            <td>1200 kr</td>
-            <td><input type="number"></td>
-            <td><button type="button">Ta bort</button></td>
-            <td>Totalt:</td>
+            <td class="price" data-price="1200">1200 kr</td>
+            <td><input type="number" class="amount"></td>
+            <td><button type="button" class="delete">Ta bort</button></td>
+            <td>Totalt:<span class="totalProduct" id="totalProduct2"></span>kr</td>
+        </tr>
+        <tr id="reset" hidden>
+            <td><button  id="resetButton">Ångra</button></td>
         </tr>
     </table>
-    <div>Totalt:<p></p> </div>
-    <button type="button" class="checkout"><a href="checkout.html">Till kassan</a></button>
+    <div class="priceDiv">Totalt:<span id="totalPrice"></span> </div>
+    <button type="button" id="checkout"><a href="checkout.html">Till kassan</a></button>
 
 </main>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
