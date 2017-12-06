@@ -1,20 +1,6 @@
 
 $(document).ready(function () {
 
-    var info = false;
-    var formData= {
-        förnamn:"",
-        efternamn:"",
-        adress:"",
-        postkod:"",
-        ort:"",
-        land:"",
-        mejl:"",
-        telefon:"",
-        betalsätt:"",
-        fraktsätt:""
-    };
-
     $('.moreInfo').on('click', function () {
         $(this).closest('.productPictureSize').find('.description').slideToggle(0);
 
@@ -25,33 +11,36 @@ $(document).ready(function () {
             $(this).text('Mini');
         }
         $(this).toggleClass('.seperate');
-        $(this).closest('.flexBoxImage').find('.productPictureSize').toggleClass('expandInfo');
+
     });
+
     $('.comment').on('click', function () {
-
-       $(this).closest('.productPictureSize').find('.commentSection').slideToggle(0);
+        $(this).closest('.productPictureSize').find('.costumerComments').empty();
+        $(this).closest('.productPictureSize').find('.commentSection').slideToggle(0);
         $(this).closest('.flexBoxImage').find('.productPictureSize').toggleClass('expandInfo');
+        var savedComments=JSON.parse(localStorage.getItem('comment'));
+
+        for(var i=0;i<savedComments.length;i++){
+            $(this).closest('.productPictureSize').find('.costumerComments').append('<p>'+ savedComments[i]+'</p>');
+        }
 
     });
+
     $('.leaveComment').on('click', function () {
 
-        if(localStorage.addComment){
-            localStorage.addComment=localStorage.addComment+$(this).closest('.commentSection').find('.commentText').val();
-        }
-        else{
-            localStorage.addComment=$(this).closest('.commentSection').find('.commentText').val();
-        }
-        $(this).closest('.commentSection').find('.costumerComments').text(localStorage.addComment);
-
+        var newComment=$(this).closest('.commentSection').find('.commentText').val();
+        comments.push(newComment);
+        localStorage.setItem('comment', JSON.stringify(comments));
+        $(this).closest('.commentSection').find('.costumerComments').append('<p>'+ newComment+'</p>');
+        $(this).closest('.commentSection').find('.commentText').val(" ");
     });
+
     $('#productTable').on('click','.delete', function () {
         $(this).closest('.product').addClass('hide');
         $(this).closest('#productTable').find('#reset').show();
         var newPrice=Number(localStorage.getItem('totalPrice'))-Number($(this).closest('.product').find('.totalProduct').text());
         $('#totalPrice').text(newPrice);
         localStorage.setItem('totalPrice',newPrice);
-
-
 
     });
 
