@@ -29,6 +29,9 @@ $(document).ready(function () {
     $('.leaveComment').on('click', function () {
 
         var newComment=$(this).closest('.commentSection').find('.commentText').val();
+        if(localStorage.getItem('comment')){
+        comments=JSON.parse(localStorage.getItem('comment'));
+        }
         comments.push(newComment);
         localStorage.setItem('comment', JSON.stringify(comments));
         $(this).closest('.commentSection').find('.costumerComments').append('<p>'+ newComment+'</p>');
